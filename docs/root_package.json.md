@@ -24,7 +24,7 @@ example script (**imaginary one**):
 // in the package.json of the project root
 "scripts": {
   "init:algorithms/sorting": "yarn --cwd code/algorithms/sorting",
-  "init:algorithms/sorting": "yarn --cwd code/algorithms/graph",
+  "init:algorithms/graph": "yarn --cwd code/algorithms/graph",
   "init__all": "yarn init:algorithms/sorting && yarn init:algorithms/graph",
   "start:frontend/react": "yarn --cwd code/frontend/react start",
   "start:backend/express-rest": "yarn --cwd code/backend/express-rest start",

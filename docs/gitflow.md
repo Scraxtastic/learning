@@ -1,4 +1,4 @@
-# git flow
+# git flow (as coder)
 
 ## short
 
@@ -16,12 +16,20 @@ changes => `branches` (ideally with a good unique name to describe its content)
 
 # example:
 
-git checkout master
-git pull
-// coding stuff...
-git checkout -b react-v17-upgrade
-git add .
-git commit -m "frontend/react/react-v17-upgrade \nwe use v17 now whoo!!"
-git push -u origin react-v17-upgrade
-git checkout master
-// making pull request on github
+git checkout master<br />
+git pull<br />
+// coding stuff...<br />
+git checkout -b react-v17-upgrade<br />
+git add .<br />
+git commit -m "frontend/react/react-v17-upgrade \nwe use v17 now whoo!!"<br />
+git push -u origin react-v17-upgrade<br />
+git checkout master<br />
+// making pull request on github<br />
+
+# git flow (as reviewer)
+
+1. control the code `semantically`
+1. control the code `functionally`
+1. `comment` on fixable spots/improvable spots
+1. finally check if the `commits` are clean before merging
+1. **delete the branch after merging**

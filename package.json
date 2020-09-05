@@ -1,6 +1,12 @@
 {
   "name": "learning",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "private": true,
-  "scripts": {}
+  "scripts": {
+    "init:algorithms/sorting": "yarn --cwd code/algorithms/sorting",
+    "test:algorithms/sorting": "yarn --cwd code/algorithms/sorting test"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.13"
+  }
 }

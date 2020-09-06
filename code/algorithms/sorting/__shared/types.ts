@@ -1,3 +1,21 @@
+import type { Step } from './stepAnalyzer/types';
+import { StepAnalyzer } from './stepAnalyzer';
+
+/**
+ * a null-version of ?
+ */
+export type Nullable<T> = T | null;
+
+/**
+ * a generous interface for recursive internals to extend
+ */
+export interface BasicInternal {
+  analyzer: StepAnalyzer;
+}
+
+/**
+ * a general generous comparator callback
+ */
 export type Comparator<T> = (a: T, b: T) => number;
 
 /**
@@ -8,6 +26,10 @@ export type SortingOptions<T = number> = Partial<{
    * a custom comparator for non-numberous arrays mainly
    */
   comparator: Comparator<T>;
+  /**
+   * a debugger callback to reach a detailed path of the algorithm
+   */
+  debugger: (array: Array<Step<T>>) => any;
 }>;
 
 /**

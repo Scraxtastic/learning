@@ -8,5 +8,8 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.13"
+  },
+  "dependencies": {
+    "deep-clone": "^3.0.3"
   }
 }

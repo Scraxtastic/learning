@@ -11,7 +11,7 @@
  * @param callback the function for your test
  */
 globalThis.it_iterative = (text: string, callback?: jest.ProvidesCallback) =>
-  it(`implementation [iterative] (${text})`, callback);
+  it(`implementation [iterative]${text ? ` (${text})` : ''}`, callback);
 
 /**
  * wrapper for your recursive implementation
@@ -20,4 +20,4 @@ globalThis.it_iterative = (text: string, callback?: jest.ProvidesCallback) =>
  * @param callback the function for your test
  */
 globalThis.it_recursive = (text: string, callback?: jest.ProvidesCallback) =>
-  it(`implementation [recursive] (${text})`, callback);
+  it(`implementation [recursive]${text ? ` (${text})` : ''}`, callback);

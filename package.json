@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "init:algorithms/sorting": "yarn --cwd code/algorithms/sorting",
+    "build:algorithms/sorting": "yarn --cwd code/algorithms/sorting build",
     "test:algorithms/sorting": "yarn --cwd code/algorithms/sorting test"
   },
   "devDependencies": {

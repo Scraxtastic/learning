@@ -11,3 +11,5 @@
 
 - link the algorithm! in the `index.ts`
 - you don't export recursive the recursive or iterative algorithm without healthcheck wrapper (you do it like this: `export const iterative = withIterativeHealthCheck(algorithm)`)
+- program test-driven (check out `jest.setup.ts` for helper test-wrappers in jest)
+- if you need a new shared functionality add it to `__shared`

@@ -7,6 +7,8 @@ import { numberComparator } from '../comparators';
  * checks:
  * - is the first parameter an array?
  * - is the comparator given if the type is not number?
+ *
+ * @param algorithm the algorithm to surround with a health check
  */
 export const withIterativeHealthCheck = (algorithm: Iterative) => (
   array: number[],
@@ -34,6 +36,8 @@ export const withIterativeHealthCheck = (algorithm: Iterative) => (
  * checks:
  * - is the first parameter an array?
  * - is the comparator given if the type is not number?
+ *
+ * @param algorithm the algorithm to surround with a health check
  */
 export const withRecursiveHealthCheck = <X = {}>(algorithm: Recursive<X>) => (
   array: number[],

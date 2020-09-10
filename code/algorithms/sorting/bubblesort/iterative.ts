@@ -4,6 +4,12 @@ import { withIterativeHealthCheck } from '../__shared/withHealthCheck';
 import { numberComparator } from '../__shared/comparators';
 import { StepAnalyzer } from '../__shared/stepAnalyzer';
 
+/**
+ * the iterative implementation of the bubblesort
+ *
+ * @param array the array to sort
+ * @param param1 the sortingOptions
+ */
 const algorithm = (
   array: number[],
   { comparator: optsComparator, debugger: optsDebugger }: SortingOptions = {}
@@ -35,4 +41,7 @@ const algorithm = (
   return re;
 };
 
+/**
+ * the iterative export with health check
+ */
 export const iterative = withIterativeHealthCheck(algorithm);

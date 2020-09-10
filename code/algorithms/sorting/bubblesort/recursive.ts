@@ -8,6 +8,13 @@ interface Internals extends BasicInternal {
   end: number;
 }
 
+/**
+ * the recursive implementation of the bubblesort
+ *
+ * @param array the array to sort
+ * @param opts sortingoptions
+ * @param param2 the internals for the recursion (not settable for users)
+ */
 const algorithm = (
   array: number[],
   opts: SortingOptions,
@@ -43,6 +50,9 @@ const algorithm = (
   return algorithm(re, opts, { end: end - 1, analyzer });
 };
 
+/**
+ * the exported algorithm with health check and initial internals
+ */
 export const recursive = withRecursiveHealthCheck<Internals>((array, opts) =>
   algorithm(array, opts, {
     end: array.length,

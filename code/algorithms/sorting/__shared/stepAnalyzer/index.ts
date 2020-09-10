@@ -11,19 +11,12 @@ export class StepAnalyzer<T = number> {
   #steps: Array<Step<T>> = [];
 
   /**
-   * @param state the initial state
-   */
-  constructor(state: T[]) {
-    this.#steps.push({ state, activeElements: [] });
-  }
-
-  /**
    * push a new state into the steps
    * @param state the current array
    * @param param yes
    */
-  pushState(state: T[], { activeElements }: PushStateOptions) {
-    this.#steps.push({ state, activeElements });
+  pushState({ activeElements }: PushStateOptions) {
+    this.#steps.push({ activeElements });
   }
 
   /**

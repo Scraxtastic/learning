@@ -7,10 +7,8 @@
     "build:algorithms/sorting": "yarn --cwd code/algorithms/sorting build",
     "test:algorithms/sorting": "yarn --cwd code/algorithms/sorting test"
   },
+  "dependencies": {},
   "devDependencies": {
     "@types/jest": "^26.0.13"
-  },
-  "dependencies": {
-    "deep-clone": "^3.0.3"
   }
 }

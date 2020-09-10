@@ -9,11 +9,11 @@ export interface PushStateOptions {
     /**
      * from index (= index in the prev state)
      */
-    from: number;
+    index1: number;
     /**
      * to index (= index in the state of this step)
      */
-    to: number;
+    index2: number;
   }>;
 }
 
@@ -21,10 +21,6 @@ export interface PushStateOptions {
  * the interface of a step-element
  */
 export interface Step<T> {
-  /**
-   * the state at this point
-   */
-  state: T[];
   /**
    * the elements which are active in the algorithm this step
    */

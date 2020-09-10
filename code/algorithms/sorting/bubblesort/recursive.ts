@@ -27,20 +27,16 @@ const algorithm = (
 
   // go from 0 to the remaining length of the unsorted array and bubble big items up
   for (let j = 0; j < end; j++) {
-    const activeElements: PushStateOptions['activeElements'] = [
-      { from: j, to: j },
-      { from: j + 1, to: j + 1 },
-    ];
+    const activeElements: PushStateOptions['activeElements'] = [];
 
     if (comparator(re[j], re[j + 1]) === 1) {
       [re[j], re[j + 1]] = [re[j + 1], re[j]];
 
       // if swap also swap for our active element debugging
-      activeElements[0].to = j + 1;
-      activeElements[1].to = j;
+      activeElements.push({ index1: j, index2: j + 1 });
     }
 
-    analyzer.pushState(re, { activeElements });
+    analyzer.pushState({ activeElements });
   }
 
   // we call the algorithm again with the end moving towards 0
@@ -50,6 +46,6 @@ const algorithm = (
 export const recursive = withRecursiveHealthCheck<Internals>((array, opts) =>
   algorithm(array, opts, {
     end: array.length,
-    analyzer: new StepAnalyzer(array),
+    analyzer: new StepAnalyzer(),
   })
 );

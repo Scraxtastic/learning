@@ -10,7 +10,7 @@ import type { Step } from '../stepAnalyzer/types';
  */
 export const relative = <T = number>(
   start: T[],
-  incrememts: Array<Step<T>>,
+  incrememts: Array<Step>,
   destIndex: number,
   startIndex: number
 ): T[] => {

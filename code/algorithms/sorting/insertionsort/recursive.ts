@@ -5,11 +5,11 @@ import { withRecursiveHealthCheck } from '../__shared/withHealthCheck';
 import { StepAnalyzer } from '../__shared/stepAnalyzer';
 
 interface Internals extends BasicInternal {
-  end: number;
+  start: number;
 }
 
 /**
- * the recursive implementation of the bubblesort
+ * the recursive implementation of the insertionsort
  *
  * @param array the array to sort
  * @param opts sortingoptions
@@ -18,12 +18,12 @@ interface Internals extends BasicInternal {
 const algorithm = (
   array: number[],
   opts: SortingOptions,
-  { end, analyzer }: Internals
+  { start, analyzer }: Internals
 ): number[] => {
   const { comparator: optsComparator, debugger: optsDebugger } = opts;
 
   // if end is 1 sorting is done
-  if (end === 1) {
+  if (start === array.length) {
     if (optsDebugger) optsDebugger(analyzer.getState());
 
     return array;
@@ -32,22 +32,20 @@ const algorithm = (
   const comparator = optsComparator || numberComparator;
   const re = array.slice(); // intended shallow-only copy
 
-  // go from 0 to the remaining length of the unsorted array and bubble big items up
-  for (let j = 0; j < end; j++) {
-    const activeElements: PushStateOptions['activeElements'] = [];
+  // we can get many actives here
+  const activeElements: PushStateOptions['activeElements'] = [];
 
-    if (comparator(re[j], re[j + 1]) === 1) {
-      [re[j], re[j + 1]] = [re[j + 1], re[j]];
+  // move left while the current item is smaller
+  for (let j = start; j > 0 && comparator(re[j], re[j - 1]) < 0; j--) {
+    [re[j], re[j - 1]] = [re[j - 1], re[j]];
 
-      // if swap also swap for our active element debugging
-      activeElements.push({ index1: j, index2: j + 1 });
-    }
-
-    analyzer.pushState({ activeElements });
+    activeElements.push({ index1: j, index2: j - 1 });
   }
 
+  analyzer.pushState({ activeElements });
+
   // we call the algorithm again with the end moving towards 0
-  return algorithm(re, opts, { end: end - 1, analyzer });
+  return algorithm(re, opts, { start: start + 1, analyzer });
 };
 
 /**
@@ -55,7 +53,7 @@ const algorithm = (
  */
 export const recursive = withRecursiveHealthCheck<Internals>((array, opts) =>
   algorithm(array, opts || {}, {
-    end: array.length,
+    start: 1,
     analyzer: new StepAnalyzer(),
   })
 );

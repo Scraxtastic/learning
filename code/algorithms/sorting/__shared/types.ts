@@ -9,8 +9,8 @@ export type Nullable<T> = T | null;
 /**
  * a generous interface for recursive internals to extend
  */
-export interface BasicInternal {
-  analyzer: StepAnalyzer;
+export interface BasicInternal<T = Step> {
+  analyzer: StepAnalyzer<T>;
 }
 
 /**
@@ -29,7 +29,7 @@ export type SortingOptions<T = number> = Partial<{
   /**
    * a debugger callback to reach a detailed path of the algorithm
    */
-  debugger: (array: Array<Step<T>>) => any;
+  debugger: <T = Step>(array: Array<T>) => any;
 }>;
 
 /**

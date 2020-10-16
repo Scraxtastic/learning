@@ -20,4 +20,15 @@ describe('test the StepAnalyzer', () => {
     expect(state[0].activeElements[0].index1).toBe(0);
     expect(state[0].activeElements[0].index2).toBe(-100);
   });
+
+  it('custom interfaces work', () => {
+    const analyzer = new StepAnalyzer<{ test: number }>();
+
+    analyzer.pushState({ test: 4 });
+
+    const state = analyzer.getState();
+
+    expect(state.length).toBe(1);
+    expect(state[0].test).toBe(4);
+  });
 });

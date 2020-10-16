@@ -1,8 +1,8 @@
-import { Bubblesort } from '.';
+import { Insertionsort } from '.';
 
-const { iterative, recursive } = Bubblesort;
+const { iterative, recursive } = Insertionsort;
 
-describe('test bubblesort', () => {
+describe('test insertionsort', () => {
   it('implementation [iterative]', () => {
     expect(iterative([1, 2, 3])).toEqual([1, 2, 3]);
     expect(iterative([3, 2, 1])).toEqual([1, 2, 3]);

@@ -3,11 +3,11 @@ import { withIterativeHealthCheck, withRecursiveHealthCheck } from '.';
 describe('test healthchecks', () => {
   it('throw errors', () => {
     expect(() =>
-      withIterativeHealthCheck((arr) => arr)(undefined)
+      withIterativeHealthCheck((arr) => arr)({} as number[])
     ).toThrowError('the first parameter must be from type array');
 
     expect(() =>
-      withRecursiveHealthCheck((arr) => arr)(undefined)
+      withRecursiveHealthCheck((arr) => arr)({} as number[])
     ).toThrowError('the first parameter must be from type array');
 
     // (future stuff)

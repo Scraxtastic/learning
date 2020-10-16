@@ -10,7 +10,7 @@ import type { Step } from '../stepAnalyzer/types';
  */
 export const absolute = <T = number>(
   start: T[],
-  incrememts: Array<Step<T>>,
+  incrememts: Array<Step>,
   destIndex: number
 ): T[] => {
   if (destIndex < 0 || destIndex > incrememts.length)

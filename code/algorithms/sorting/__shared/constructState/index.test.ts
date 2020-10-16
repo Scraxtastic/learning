@@ -6,7 +6,7 @@ const { relative, absolute } = constructState;
 describe('test constructState', () => {
   it('reconstructs state properly (absolute reconstruction)', () => {
     const start = [1, 3, 2, 5, 3];
-    const states: Step<number>[] = [
+    const states: Step[] = [
       { activeElements: [] },
       { activeElements: [{ index1: 1, index2: 2 }] },
       { activeElements: [] },
@@ -21,7 +21,7 @@ describe('test constructState', () => {
 
   it('reconstructs state properly (relative reconstruction)', () => {
     const start = [1, 2, 3, 4, 5];
-    const states: Step<number>[] = [
+    const states: Step[] = [
       { activeElements: [] },
       { activeElements: [{ index1: 3, index2: 4 }] },
       { activeElements: [{ index1: 2, index2: 3 }] },
